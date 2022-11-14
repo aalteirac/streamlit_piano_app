@@ -87,12 +87,14 @@ df=df[df.temp>temp[0]][df.temp<temp[1]]
 
 
 st.pydeck_chart(pdk.Deck(
-    map_style='light',
+    map_style='mapbox://styles/mapbox/light-v9',
+    tooltip=True,
     initial_view_state=pdk.ViewState(
             latitude=48.85,
             longitude=-2.35,
-            zoom=1.7,
-            pitch=44,
+            zoom=2.7,
+            pitch=60,
+            
         ),
     layers=[
         pdk.Layer(
@@ -100,13 +102,23 @@ st.pydeck_chart(pdk.Deck(
            data=df[['lon', 'lat']],
            get_position='[lon, lat]',
            radius=40000,
-           coverage=2.6, 
+           coverage=1.6, 
+           bearing=10,
+           
            auto_highlight=True,
            elevation_scale=400,
            elevation_range=[0, 4000],
            pickable=True,
            extruded=True,
-        )
+        ),
+        # pdk.Layer(
+        #     'ScatterplotLayer',     # Change the `type` positional argument here
+        #     data=df[['lon', 'lat']],
+        #     get_position=['lon', 'lat'],
+        #     auto_highlight=True,
+        #     get_radius=20000,          # Radius is given in meters
+        #     get_fill_color=[180, 0, 200, 140],  # Set an RGBA value for fill
+        #     pickable=True)
         ],
 ))
     
