@@ -12,6 +12,9 @@ session = st.connection.snowflake_connection.singleton(st.secrets.snow)
 
 st.markdown('''
 <style>
+.stApp header{
+    display:none;
+}
 .stApp {
     background-attachment: fixed;
     background-size: cover
@@ -69,6 +72,7 @@ def getPianoWeather():
 df=getPianoWeather()
 df.rename(str.lower, axis='columns',inplace=True)
 df.sort_values(by='geo_country', inplace=True)
+df.sort_values(by='av_show', inplace=True)
 
 st.markdown('## Today Live Views: ' + str(getAllViews().CT[0]))
    
