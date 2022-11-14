@@ -7,8 +7,8 @@ import pydeck as pdk
 import numpy as np
 import hydralit_components as hc
 
-creds = json.load(open("credentials.json", "r"))
-session = st.connection.snowflake_connection.singleton(creds)
+
+session = st.connection.snowflake_connection.singleton(st.secrets.snow)
 
 st.markdown('''
 <style>
