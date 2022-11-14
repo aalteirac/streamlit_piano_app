@@ -1,0 +1,6 @@
+streamlit==1.13.0
+streamlit-highcharts==0.1.5
+st-connection @ git+https://github.com/aalteirac/st_connection.git
+snowflake-connector-python==2.7.12
+hydralit_components
+
