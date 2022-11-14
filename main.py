@@ -13,7 +13,7 @@ session = st.connection.snowflake_connection.singleton(st.secrets.snow)
 st.markdown('''
 <style>
 .stApp header{
-    display:none;
+    background-color:#f0f2f6;
 }
 .stApp {
     background-attachment: fixed;
