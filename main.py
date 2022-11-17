@@ -6,9 +6,10 @@ import pandas as pd
 import pydeck as pdk
 import numpy as np
 import hydralit_components as hc
+import snowflake.connector as sf
 
 
-session = st.connection.snowflake_connection.singleton(st.secrets.snow)
+session = sf.connect(**st.secrets.snow)
 
 st.markdown('''
 <style>
